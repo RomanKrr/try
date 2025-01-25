@@ -66,7 +66,7 @@ function App() {
           <Route path='/studentProfile' element={authUser ? <StudentProfile /> : <Navigate to="/login" />} />
           <Route path='/notificationCenter' element={authUser ? <NotificationCenter /> : <Navigate to="/login" />} />
           <Route path='/individualStudyPlan' element={authUser ? <IndividualStudyPlan /> : <Navigate to="/login" />} />
-          <Route path='/portfolio' element={authUser ? <Portfolio /> : <Navigate to="/login" />} />
+          <Route path='/portfolio' element={authUser ? <Portfolio fcmToken={fcmToken} /> : <Navigate to="/login" />} />
           <Route path='/achievements' element={authUser ? <Achievements /> : <Navigate to="/login" />} />
           <Route path='/listOfJournals' element={authUser ? <ListOfJournals /> : <Navigate to="/login" />} />
           <Route path='/journal' element={authUser ? <Journal /> : <Navigate to="/login" />} />
