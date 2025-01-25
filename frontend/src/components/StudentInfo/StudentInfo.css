@@ -1,0 +1,142 @@
+.student {
+    width: 100%;
+}
+
+.student_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.student_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.student_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.student_info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 20px;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.student_pib {
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.student_birthday {
+    margin-bottom: 8px;
+}
+
+.student_label {
+    font-weight: bold;
+    margin: 0;
+}
+
+.id-book {
+    margin: 0;
+}
+
+
+@media (min-width: 850px) {
+    .student_container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 500px) {
+    .student_container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .student_image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+.student_image {
+    position: relative;
+    
+}
+
+.default_avatar {
+    font-size: 50px;
+    color: gray;
+}
+
+/* Камера (кнопка) */
+.camera_button {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 35px;
+    height: 35px;
+    background-color: #b0c5dc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* При наведенні */
+.camera_button:hover {
+    background-color: #0056b3;
+}
+
+/* Іконка камери */
+.camera_icon {
+    color: white;
+    font-size: 20px;
+}
+
+/* Сховати стандартний інпут */
+.camera_button input {
+    display: none;
+}
+
+.load {
+    color: var(--text-color);
+    font-size: 2em;
+    background: var(--bg-color);
+    padding: 1rem;
+    font-family: "Mulish", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}

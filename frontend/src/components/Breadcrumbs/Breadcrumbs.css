@@ -1,0 +1,41 @@
+.nav {
+    padding-top: 0.7rem;
+    padding-bottom: 1rem;
+    padding-left: 10px;
+}
+
+.nav_links {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.nav_links p {
+    color: var(--bread-text-color);
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    margin: 0;
+}
+
+.page_name {
+    color: var(--bread-text-color);
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    margin: 0;
+}
+
+.page_name:hover {
+    text-decoration: underline;
+}
+
+.pages_container span {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
