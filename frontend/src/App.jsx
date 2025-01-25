@@ -20,7 +20,7 @@ import SignUP from './pages/SignUP'
 import Login from './pages/Login'
 import { axiosInstance } from './lib/axios'
 import { useAuthStore } from './store/useAuthStore'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import BlankLayout from './components/BlankLayout'
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs'
 import Notification from './pages/Notification'
@@ -30,27 +30,42 @@ import HomeLayout from './components/HomeLayout'
 import Certifications from './pages/Certifications'
 import TypesOfOccupations from './pages/TypesOfOccupations'
 import Documents from './pages/Documents'
+import { requestFCMToken } from '../utils/fireBaseUtils'
 
 function App() {
   const { authUser, checkAuth } = useAuthStore();
+  const [fcmToken, setFcmToken] = useState(null);
+
+  
+  useEffect(() => {
+    const fetchFcmToken = async () => {
+      try {
+        const token = await requestFCMToken();
+        setFcmToken(token);
+        console.log(token);
+      } catch (error) {
+        console.log("Errro in gettinf FCM token:", error);
+      }
+    }
+    fetchFcmToken();
+  })
 
   useEffect(() => {
     checkAuth();
   }, [checkAuth])
-
 
   return (
     <div className='main'>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/allYears" element={<AllYears />} />
-          <Route path="/electiveDisciplines" element={authUser ? <ElectiveDisciplines /> : <Navigate to="/login" /> } />
-          <Route path="/ratingOfSpecialties" element={authUser ? <RatingOfSpecialties /> : <Navigate to="/login" /> } />
-          <Route path='/scheduleByGroups' element={authUser ? <ScheduleByGroups /> : <Navigate to="/login" /> } />
-          <Route path='/scheduleByTeachers' element={authUser ? <ScheduleByTeachers /> : <Navigate to="/login" /> } />
+          <Route path="/electiveDisciplines" element={authUser ? <ElectiveDisciplines /> : <Navigate to="/login" />} />
+          <Route path="/ratingOfSpecialties" element={authUser ? <RatingOfSpecialties /> : <Navigate to="/login" />} />
+          <Route path='/scheduleByGroups' element={authUser ? <ScheduleByGroups /> : <Navigate to="/login" />} />
+          <Route path='/scheduleByTeachers' element={authUser ? <ScheduleByTeachers /> : <Navigate to="/login" />} />
           <Route path='/studentProfile' element={authUser ? <StudentProfile /> : <Navigate to="/login" />} />
-          <Route path='/notificationCenter' element={authUser ? <NotificationCenter /> : <Navigate to="/login" /> } />
-          <Route path='/individualStudyPlan' element={authUser ? <IndividualStudyPlan /> : <Navigate to="/login" /> } />
+          <Route path='/notificationCenter' element={authUser ? <NotificationCenter /> : <Navigate to="/login" />} />
+          <Route path='/individualStudyPlan' element={authUser ? <IndividualStudyPlan /> : <Navigate to="/login" />} />
           <Route path='/portfolio' element={authUser ? <Portfolio /> : <Navigate to="/login" />} />
           <Route path='/achievements' element={authUser ? <Achievements /> : <Navigate to="/login" />} />
           <Route path='/listOfJournals' element={authUser ? <ListOfJournals /> : <Navigate to="/login" />} />
@@ -59,8 +74,8 @@ function App() {
           <Route path='/workExperience' element={authUser ? <WorkExperience /> : <Navigate to="/login" />} />
           <Route path='/studentOrders' element={authUser ? <StudentOrders /> : <Navigate to="/login" />} />
           <Route path='/certifications' element={authUser ? <Certifications /> : <Navigate to="/login" />} />
-          <Route path='/typesOfOccupations' element={authUser ? <TypesOfOccupations  /> : <Navigate to="/login" />} />
-          <Route path='/documents' element={authUser ? <Documents  /> : <Navigate to="/login" />} />
+          <Route path='/typesOfOccupations' element={authUser ? <TypesOfOccupations /> : <Navigate to="/login" />} />
+          <Route path='/documents' element={authUser ? <Documents /> : <Navigate to="/login" />} />
         </Route>
 
         <Route element={<BlankLayout />}>
