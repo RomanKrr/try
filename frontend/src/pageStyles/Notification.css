@@ -1,3 +1,12 @@
+.fcm {
+    max-width: 100%;
+    width: 300px; /* Обмежуємо ширину, щоб текст не розтягувався */
+    word-wrap: break-word; /* Додаємо перенесення слів */
+    overflow-x: auto; /* Горизонтальна прокрутка, якщо текст занадто довгий */
+    white-space: pre-wrap;
+    cursor: pointer;
+    background: gray;
+}
 .some_text{
     text-align: center;
     font-family: "Mulish", serif;
