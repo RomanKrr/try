@@ -16,7 +16,17 @@ firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
-messaging.onBackgroundMessage(function(payload) {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
-  
+const broadcastChannel = new BroadcastChannel('notification_channel');
+
+messaging.onBackgroundMessage(function (payload) {
+    console.log('[firebase-messaging-sw.js] Received background message ', payload);
+
+    const notification = {
+        title: payload.notification.title,
+        body: payload.notification.body,
+        date: new Date().toISOString(),
+    };
+
+    // Передаємо повідомлення в React
+    broadcastChannel.postMessage(notification);
 });

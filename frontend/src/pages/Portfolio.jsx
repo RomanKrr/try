@@ -30,6 +30,7 @@ const Portfolio = ({ fcmToken }) => {
 
       {/* Кнопка для запиту дозволу на сповіщення */}
       <button onClick={requestNotificationPermission}>Запросити дозвіл на сповіщення</button>
+      
     </div>
   );
 };
