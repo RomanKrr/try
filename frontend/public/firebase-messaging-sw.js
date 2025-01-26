@@ -27,6 +27,5 @@ messaging.onBackgroundMessage(function (payload) {
         date: new Date().toISOString(),
     };
 
-    // Передаємо повідомлення в React
     broadcastChannel.postMessage(notification);
 });
